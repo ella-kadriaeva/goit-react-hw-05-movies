@@ -1,0 +1,9 @@
+.movieList {
+}
+.movieItem {
+  text-decoration: none;
+  list-style-type: none;
+  line-height: 2;
+  font: inherit;
+  font-size: 12px;
+}

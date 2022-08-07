@@ -1,0 +1,17 @@
+.navLink {
+  color: black;
+  display: inline-flex;
+  padding: 10px;
+  text-decoration: none;
+}
+.active {
+  color: orange;
+
+  display: inline-flex;
+  padding: 10px;
+  text-decoration: none;
+}
+.nav {
+  margin-left: 20px;
+  border-bottom: 1px solid darkgray;
+}
