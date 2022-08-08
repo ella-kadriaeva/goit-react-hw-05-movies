@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import css from './Home.module.css';
 import { Link } from 'react-router-dom';
-import fetchApi from 'services/fetch';
+import { fetchApi } from 'services/fetch';
 import Loader from 'components/Loader/Loader';
-import PopularMovies from 'components/PopularMovies/PopularMovies';
+import MoviesList from 'components/MoviesList/MoviesList';
 
 export default function Home() {
   const [status, setStatus] = useState('idle');
@@ -13,10 +13,10 @@ export default function Home() {
 
   useEffect(() => {
     setStatus('pending');
-    fetchMovie();
+    fetchMovies();
   }, []);
 
-  const fetchMovie = () => {
+  const fetchMovies = () => {
     fetchApi()
       .then(data => data.results)
       .then(movies => {
@@ -35,10 +35,10 @@ export default function Home() {
         <h2 className={css.home__title}>Trending todey</h2>
         {status === 'pending' && <Loader />}
         {status === 'rejected' && <h1>{error.message}</h1>}
-        {status === 'resolved' && <PopularMovies movies={movies} />}
+        {status === 'resolved' && <MoviesList movies={movies} />}
       </main>
       <nav>
-        <Link to="/about">Movie</Link>
+        <Link to="/movie">Movie</Link>
       </nav>
     </>
   );

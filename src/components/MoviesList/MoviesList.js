@@ -1,7 +1,7 @@
 import React from 'react';
-import css from './PopularMovies.module.css';
+import css from './MoviesList.module.css';
 
-export default function PopularMovies({ movies }) {
+export default function MoviesList({ movies }) {
   return (
     <ul className={css.movieList}>
       {movies.map(({ id, title }) => (
