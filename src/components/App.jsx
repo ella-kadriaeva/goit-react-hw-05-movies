@@ -2,18 +2,19 @@ import Home from './Home/Home';
 import Movie from './Movie/Movie';
 import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navigation from './Navigation/Navigation';
+import Layout from './Layout/Layout';
+import { MovieInfo } from 'pages/MovieInfo/MovieInfo';
 
 export const App = () => {
   return (
     <div>
-      <header>
-        <Navigation />
-      </header>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movie" element={<Movie />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="/" element={<Layout />}>
+          <Route index path="/" element={<Home />} />
+          <Route path="movies" element={<Movie />} />
+          <Route path="movies/:itemId" element={<MovieInfo />}></Route>
+          {/* <Route path="*" element={<NotFound />} /> */}
+        </Route>
       </Routes>
     </div>
   );

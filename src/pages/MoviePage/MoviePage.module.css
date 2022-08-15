@@ -1,0 +1,33 @@
+.title {
+  padding-top: 50px;
+  text-align: center;
+  color: #42362b;
+  font-size: 34px;
+  font-weight: 400;
+}
+img {
+  display: block;
+  width: 300px;
+  object-fit: cover;
+}
+.container {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid darkgray;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.text {
+  color: #42362b;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.meta {
+  padding: 30px;
+}
+.box {
+  width: 100%;
+  padding: 20px;
+}

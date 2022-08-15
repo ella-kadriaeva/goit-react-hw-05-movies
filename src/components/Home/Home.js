@@ -35,7 +35,7 @@ export default function Home() {
         <h2 className={css.home__title}>Trending todey</h2>
         {status === 'pending' && <Loader />}
         {status === 'rejected' && <h1>{error.message}</h1>}
-        {status === 'resolved' && <MoviesList movies={movies} />}
+        {status === 'resolved' && <MoviesList movies={movies} from="movies" />}
       </main>
       <nav>
         <Link to="/movie">Movie</Link>
