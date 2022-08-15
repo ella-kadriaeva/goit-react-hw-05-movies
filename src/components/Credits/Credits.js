@@ -1,10 +1,11 @@
 import { fetchCredits } from 'services/fetch';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import CreditsPage from 'pages/CreditsPage/CreditsPage';
+// import CreditsPage from 'pages/CreditsPage/CreditsPage';
 
 export default function Credits() {
   const { itemId } = useParams();
+  console.log(itemId);
   const [credits, setCredits] = useState();
   const [error, setError] = useState('');
 
@@ -26,7 +27,8 @@ export default function Credits() {
   return (
     <>
       {error && <h1>{error.message}</h1>}
-      {credits && <CreditsPage credits={credits} />}
+      {credits && <h1>++</h1>}
+      {/* <CreditsPage credits={credits} /> */}
     </>
   );
 }

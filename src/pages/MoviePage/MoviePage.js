@@ -11,7 +11,6 @@ export default function MoviePage({ movieInfo }) {
     vote_average,
     overview,
   } = movieInfo;
-  console.log(genres, movieInfo);
   const genresInfo = genres.map(genre => genre.name).join(', ');
   const location = useLocation();
   const time = formatDate(release_date);
@@ -37,7 +36,7 @@ export default function MoviePage({ movieInfo }) {
         <h3 className={css.text}>Additional information</h3>
         <ul>
           <li>
-            <Link to="credits" state={location.state}>
+            <Link to={`/credits`} state={location.state}>
               Cast
             </Link>
           </li>

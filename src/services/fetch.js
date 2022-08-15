@@ -24,6 +24,15 @@ export function fetchMovieInfo(movie_id) {
   const url = `${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en`;
   return fetch(url).then(response => {
     if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(new Error(`There are no images for your request`));
+  });
+}
+export function fetchCredits(movie_id) {
+  const url = `${BASE_URL}/movie/${movie_id}/credits?api_key=${API_KEY}&language=en`;
+  return fetch(url).then(response => {
+    if (response.ok) {
       console.log(response);
       return response.json();
     }

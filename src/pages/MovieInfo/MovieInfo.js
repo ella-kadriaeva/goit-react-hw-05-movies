@@ -6,7 +6,7 @@ import { fetchMovieInfo } from 'services/fetch';
 
 export const MovieInfo = () => {
   const { itemId } = useParams();
-  console.log(itemId);
+
   const [movieInfo, setMovieInfo] = useState({});
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');

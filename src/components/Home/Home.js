@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import css from './Home.module.css';
-import { Link } from 'react-router-dom';
+
 import { fetchApi } from 'services/fetch';
 import Loader from 'components/Loader/Loader';
 import MoviesList from 'components/MoviesList/MoviesList';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const [status, setStatus] = useState('idle');
@@ -35,7 +36,7 @@ export default function Home() {
         <h2 className={css.home__title}>Trending todey</h2>
         {status === 'pending' && <Loader />}
         {status === 'rejected' && <h1>{error.message}</h1>}
-        {status === 'resolved' && <MoviesList movies={movies} from="movies" />}
+        {status === 'resolved' && <MoviesList movies={movies} />}
       </main>
       <nav>
         <Link to="/movie">Movie</Link>
