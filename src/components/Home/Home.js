@@ -6,7 +6,7 @@ import { fetchApi } from 'services/fetch';
 import Loader from 'components/Loader/Loader';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { Link } from 'react-router-dom';
-
+import { Navigate } from 'react-router-dom';
 export default function Home() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
@@ -23,6 +23,10 @@ export default function Home() {
       .then(movies => {
         setMovies([...movies]);
         setStatus('resolved');
+
+        if (movies) {
+          return <Navigate to="movies/movieId" replace />;
+        }
       })
       .catch(error => {
         setStatus('rejected');

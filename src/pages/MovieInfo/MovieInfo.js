@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Navigate } from 'react-router-dom';
 import MoviePage from 'pages/MoviePage/MoviePage';
 import Loader from 'components/Loader/Loader';
 import { fetchMovieInfo } from 'services/fetch';
@@ -22,12 +22,16 @@ export const MovieInfo = () => {
       .then(movieInfo => {
         setMovieInfo(movieInfo);
         setStatus('resolved');
+        if (movieInfo) {
+          return <Navigate to={'movieId'} replace />;
+        }
       })
       .catch(error => {
         setStatus('rejected');
         setError(error);
       });
   };
+
   return (
     <>
       <main>
