@@ -4,10 +4,11 @@ import Credits from './Credits/Credits';
 import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
-import { MovieInfo } from 'pages/MovieInfo/MovieInfo';
+import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';
 import Reviews from 'components/Reviews/Reviews';
+import NotFound from 'pages/NotFound/NotFound';
 // Layout = lazy(() => import('./Layout/Layout'));
 // Credits = lazy(() => import('./Credits/Credits'));
 // Home = lazy(() => import('./Home/Home'));
@@ -27,7 +28,7 @@ export const App = () => {
               <Route path="reviews" element={<Reviews />} />
             </Route>
           </Route>
-          {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </div>

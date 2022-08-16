@@ -1,43 +1,33 @@
 import { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
 import css from './Home.module.css';
-
 import { fetchApi } from 'services/fetch';
-
 import MoviesList from 'components/MoviesList/MoviesList';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-  const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetchMovies();
-  }, []);
-
-  const fetchMovies = () => {
     fetchApi()
       .then(data => data.results)
       .then(movies => {
         setMovies([...movies]);
-        setStatus('resolved');
       })
       .catch(error => {
-        setStatus('rejected');
         setError(error);
       });
-  };
+  }, []);
 
   return (
     <>
       <main className={css.container}>
         <h2 className={css.home__title}>Trending todey</h2>
-        {status === 'rejected' && <h1>{error.message}</h1>}
-        {status === 'resolved' && <MoviesList movies={movies} />}
+        {error && <h1>{error.message}</h1>}
+        {movies && <MoviesList movies={movies} />}
       </main>
       <nav>
-        <Link to="/movie">Movie</Link>
+        <Link to="/movies">Movie</Link>
       </nav>
     </>
   );

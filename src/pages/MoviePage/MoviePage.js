@@ -11,6 +11,7 @@ export default function MoviePage({ movieInfo }) {
     vote_average,
     overview,
   } = movieInfo;
+
   const genresInfo = genres.map(genre => genre.name).join(', ');
   const location = useLocation();
   const time = formatDate(release_date);

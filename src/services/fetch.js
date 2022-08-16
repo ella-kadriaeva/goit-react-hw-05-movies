@@ -7,7 +7,7 @@ export function fetchApi() {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`There are no images for your request`));
+    return Promise.reject(new Error(`There are no data for your request`));
   });
 }
 
@@ -17,7 +17,7 @@ export function fetchApiByName(searchQuery) {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`There are no images for your request`));
+    return Promise.reject(new Error(`There are no data for your request`));
   });
 }
 export function fetchMovieInfo(movie_id) {
@@ -26,7 +26,7 @@ export function fetchMovieInfo(movie_id) {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`There are no images for your request`));
+    return Promise.reject(new Error(`There are no data for your request`));
   });
 }
 export function fetchCredits(movie_id) {
@@ -35,7 +35,7 @@ export function fetchCredits(movie_id) {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`There are no images for your request`));
+    return Promise.reject(new Error(`There are no data for your request`));
   });
 }
 export function fetchReviews(movie_id) {
@@ -44,6 +44,6 @@ export function fetchReviews(movie_id) {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`There are no images for your request`));
+    return Promise.reject(new Error(`There are no data for your request`));
   });
 }

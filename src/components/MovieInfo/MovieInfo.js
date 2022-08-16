@@ -21,7 +21,6 @@ export const MovieInfo = () => {
         setStatus('resolved');
       })
       .catch(error => {
-        setStatus('rejected');
         setError(error);
       });
   };
@@ -29,7 +28,7 @@ export const MovieInfo = () => {
   return (
     <>
       <main>
-        {status === 'rejected' && <h1>{error.message}</h1>}
+        {error && <h1>{error.message}</h1>}
         {status === 'resolved' && <MoviePage movieInfo={movieInfo} />}
 
         <Outlet />

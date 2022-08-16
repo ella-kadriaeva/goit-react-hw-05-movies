@@ -15,7 +15,6 @@ export default function Credits() {
           setError('There is no cast information');
           return;
         }
-
         setCredits(credits);
       })
       .catch(error => {
