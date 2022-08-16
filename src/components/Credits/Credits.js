@@ -1,11 +1,10 @@
 import { fetchCredits } from 'services/fetch';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import CreditsPage from 'pages/CreditsPage/CreditsPage';
+import CreditsPage from 'pages/CreditsPage/CreditsPage';
 
 export default function Credits() {
   const { itemId } = useParams();
-  console.log(itemId);
   const [credits, setCredits] = useState();
   const [error, setError] = useState('');
 
@@ -16,8 +15,8 @@ export default function Credits() {
           setError('There is no cast information');
           return;
         }
+
         setCredits(credits);
-        console.log(credits);
       })
       .catch(error => {
         setError(error);
@@ -27,8 +26,7 @@ export default function Credits() {
   return (
     <>
       {error && <h1>{error.message}</h1>}
-      {credits && <h1>++</h1>}
-      {/* <CreditsPage credits={credits} /> */}
+      {credits && <CreditsPage credits={credits} />}
     </>
   );
 }

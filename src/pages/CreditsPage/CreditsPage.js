@@ -2,13 +2,26 @@ import css from './CreditsPage.module.css';
 
 export default function CreditsPage({ credits }) {
   const { cast } = credits;
-  const { profile_path, job, name } = cast;
-
+  console.log(cast);
   return (
     <div className={css.container}>
-      <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} />
-      <p>{job}</p>
-      <p>{name}</p>
+      <ul className={css.list}>
+        {cast.map(({ id, character, profile_path, name }) => (
+          <li className={css.card} key={id}>
+            <img
+              className={css.cardImg}
+              src={
+                profile_path
+                  ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                  : 'https://via.placeholder.com/500x750?text=Not+photo,+sorry!'
+              }
+              alt={character}
+            />
+            <p className={css.text}>Name: {name}</p>
+            <p className={css.text}>Character: {character}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

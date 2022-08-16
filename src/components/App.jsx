@@ -5,20 +5,31 @@ import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { MovieInfo } from 'pages/MovieInfo/MovieInfo';
+import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
+import Reviews from 'components/Reviews/Reviews';
+// Layout = lazy(() => import('./Layout/Layout'));
+// Credits = lazy(() => import('./Credits/Credits'));
+// Home = lazy(() => import('./Home/Home'));
+// Movie = lazy(() => import('./Movie/Movie'));
+// MovieInfo = lazy(() => import('pages/MovieInfo/MovieInfo'));
 
 export const App = () => {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="movies" element={<Movie />} />
-          <Route path=":itemId" element={<MovieInfo />}>
-            <Route path="credits" element={<Credits />} />
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/movies" element={<Movie />} />
+            <Route path="/movies/:itemId" element={<MovieInfo />}>
+              <Route path="credits" element={<Credits />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
           </Route>
-        </Route>
-        {/* <Route path="*" element={<NotFound />} /> */}
-      </Routes>
+          {/* <Route path="*" element={<NotFound />} /> */}
+        </Routes>
+      </Suspense>
     </div>
   );
 };

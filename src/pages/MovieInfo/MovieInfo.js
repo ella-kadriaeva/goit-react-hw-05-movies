@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { Link, useParams, Outlet } from 'react-router-dom';
 import MoviePage from 'pages/MoviePage/MoviePage';
-import Loader from 'components/Loader/Loader';
 import { fetchMovieInfo } from 'services/fetch';
 
 export const MovieInfo = () => {
@@ -12,8 +11,6 @@ export const MovieInfo = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setStatus('pending');
-
     fetchMovieInformation(itemId);
   }, [itemId]);
 
@@ -22,9 +19,6 @@ export const MovieInfo = () => {
       .then(movieInfo => {
         setMovieInfo(movieInfo);
         setStatus('resolved');
-        if (movieInfo) {
-          return <Navigate to={'movieId'} replace />;
-        }
       })
       .catch(error => {
         setStatus('rejected');
@@ -35,12 +29,13 @@ export const MovieInfo = () => {
   return (
     <>
       <main>
-        {status === 'pending' && <Loader />}
         {status === 'rejected' && <h1>{error.message}</h1>}
         {status === 'resolved' && <MoviePage movieInfo={movieInfo} />}
+
+        <Outlet />
       </main>
       <nav>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
       </nav>
     </>
   );
