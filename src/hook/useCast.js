@@ -1,9 +1,8 @@
-import { fetchCredits } from 'services/fetch';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import CreditsPage from 'pages/CreditsPage/CreditsPage';
+import { fetchCredits } from 'services/fetch';
 
-export default function Credits() {
+export const useCast = () => {
   const { itemId } = useParams();
   const [credits, setCredits] = useState();
   const [error, setError] = useState('');
@@ -22,10 +21,5 @@ export default function Credits() {
       });
   }, [itemId]);
 
-  return (
-    <>
-      {error && <h1>{error.message}</h1>}
-      {credits && <CreditsPage credits={credits} />}
-    </>
-  );
-}
+  return { credits, error };
+};

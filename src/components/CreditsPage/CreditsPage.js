@@ -1,4 +1,5 @@
 import css from './CreditsPage.module.css';
+import PropTypes from 'prop-types';
 
 export default function CreditsPage({ credits }) {
   const { cast } = credits;
@@ -25,3 +26,6 @@ export default function CreditsPage({ credits }) {
     </div>
   );
 }
+CreditsPage.propTypes = {
+  credits: PropTypes.array.isRequired,
+};

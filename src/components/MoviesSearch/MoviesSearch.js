@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import css from './MoviesSearch.module.css';
 import SearchInput from 'components/SearchInput/SearchInput';

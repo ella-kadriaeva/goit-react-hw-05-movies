@@ -1,4 +1,5 @@
 import css from './ReviewsPage.module.css';
+import PropTypes from 'prop-types';
 
 export default function ReviewsPage({ reviews }) {
   const { results } = reviews;
@@ -20,3 +21,6 @@ export default function ReviewsPage({ reviews }) {
     </div>
   );
 }
+ReviewsPage.propTypes = {
+  reviews: PropTypes.array.isRequired,
+};
