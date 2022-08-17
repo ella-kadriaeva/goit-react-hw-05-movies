@@ -1,20 +1,21 @@
 import css from './CreditsPage.module.css';
-import PropTypes from 'prop-types';
 
 export default function CreditsPage({ credits }) {
   const { cast } = credits;
-  console.log(cast);
+
   return (
     <div className={css.container}>
       <ul className={css.list}>
         {cast.map(({ id, character, profile_path, name }) => (
           <li className={css.card} key={id}>
             <img
+              width="275px"
+              height="400px"
               className={css.cardImg}
               src={
                 profile_path
-                  ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                  : 'https://via.placeholder.com/500x750?text=Not+photo,+sorry!'
+                  ? `https://image.tmdb.org/t/p/w300${profile_path}`
+                  : 'https://via.placeholder.com/275x400?text=No+photo,+sorry!'
               }
               alt={character}
             />
@@ -26,6 +27,3 @@ export default function CreditsPage({ credits }) {
     </div>
   );
 }
-CreditsPage.propTypes = {
-  credits: PropTypes.array.isRequired,
-};

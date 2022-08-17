@@ -1,4 +1,4 @@
-import CreditsPage from 'components/CreditsPage/CreditsPage';
+import CreditsPage from 'pages/CreditsPage/CreditsPage';
 import { useCast } from 'hook/useCast';
 
 export default function Credits() {

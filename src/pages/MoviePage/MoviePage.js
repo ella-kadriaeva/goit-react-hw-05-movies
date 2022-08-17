@@ -16,10 +16,14 @@ export default function MoviePage({ movieInfo }) {
   const location = useLocation();
   const time = formatDate(release_date);
   return (
-    <main>
+    <>
       <div className={css.container}>
         <img
-          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w500${poster_path}`
+              : 'https://via.placeholder.com/500x600?text=Not+photo,+sorry!'
+          }
           alt={original_title}
         />
         <div className={css.meta}>
@@ -48,6 +52,6 @@ export default function MoviePage({ movieInfo }) {
           </li>
         </ul>
       </div>
-    </main>
+    </>
   );
 }

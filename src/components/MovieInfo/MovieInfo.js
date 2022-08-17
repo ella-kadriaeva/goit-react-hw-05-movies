@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet } from 'react-router-dom';
 import MoviePage from 'pages/MoviePage/MoviePage';
 import { fetchMovieInfo } from 'services/fetch';
+import BackButton from 'components/BackButton/BackButton';
 
 export const MovieInfo = () => {
   const { itemId } = useParams();
@@ -26,15 +27,10 @@ export const MovieInfo = () => {
 
   return (
     <>
-      <main>
-        {error && <h1>{error.message}</h1>}
-        {status === 'resolved' && <MoviePage movieInfo={movieInfo} />}
-
-        <Outlet />
-      </main>
-      <nav>
-        <Link to="/">Home</Link>
-      </nav>
+      {error && <h1>{error.message}</h1>}
+      {status === 'resolved' && <MoviePage movieInfo={movieInfo} />}
+      <BackButton />
+      <Outlet />
     </>
   );
 };

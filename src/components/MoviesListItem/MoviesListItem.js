@@ -5,13 +5,15 @@ export default function MoviesListItem({ id, title }) {
   const location = useLocation();
 
   return (
-    <Link
-      to={`/movies/${id}`}
-      state={{ from: location }}
-      className={css.movieItem}
-    >
-      {title}
-    </Link>
+    <li>
+      <Link
+        to={`/movies/${id}`}
+        state={{ from: location }}
+        className={css.movieItem}
+      >
+        {title}
+      </Link>
+    </li>
   );
 }
 MoviesListItem.propTypes = {

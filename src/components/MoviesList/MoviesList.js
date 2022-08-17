@@ -6,9 +6,7 @@ export default function MoviesList({ movies }) {
   return (
     <ul className={css.movieList}>
       {movies.map(({ id, title }) => (
-        <li key={id}>
-          <MoviesListItem id={id} title={title} />
-        </li>
+        <MoviesListItem key={id} id={id} title={title} />
       ))}
     </ul>
   );

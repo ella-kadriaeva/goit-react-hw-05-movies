@@ -23,7 +23,7 @@ function Movie() {
     fetchApiByName(searchQuery)
       .then(data => data.results)
       .then(movies => {
-        setMovies([...movies]);
+        setMovies(movies);
       })
       .catch(error => {
         setError(error);
@@ -31,11 +31,11 @@ function Movie() {
   }, [searchQuery]);
   return (
     <>
-      <main className={css.container}>
+      <div className={css.container}>
         <SearchInput onSubmit={formSubmit} />
         {error && <h1>{error.message}</h1>}
         {movies && <MoviesList movies={movies} />}
-      </main>
+      </div>
       <nav>
         <Link to="/">Home</Link>
       </nav>

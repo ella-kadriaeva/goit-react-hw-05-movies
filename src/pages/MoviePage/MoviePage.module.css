@@ -12,6 +12,7 @@ img {
 }
 .container {
   display: flex;
+
   width: 100%;
   padding: 20px;
   border-bottom: 1px solid darkgray;
@@ -28,6 +29,7 @@ img {
   padding: 30px;
 }
 .box {
+  margin-top: 50px;
   width: 100%;
   padding: 20px;
 }

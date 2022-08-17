@@ -1,9 +1,8 @@
 import css from './ReviewsPage.module.css';
-import PropTypes from 'prop-types';
 
 export default function ReviewsPage({ reviews }) {
   const { results } = reviews;
-  console.log(results);
+
   return (
     <div className={css.container}>
       <ul className={css.list}>
@@ -21,6 +20,3 @@ export default function ReviewsPage({ reviews }) {
     </div>
   );
 }
-ReviewsPage.propTypes = {
-  reviews: PropTypes.array.isRequired,
-};
