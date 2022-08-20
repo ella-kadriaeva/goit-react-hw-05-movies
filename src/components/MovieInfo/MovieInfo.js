@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Outlet } from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import MoviePage from 'pages/MoviePage/MoviePage';
 import { fetchMovieInfo } from 'services/fetch';
 import BackButton from 'components/BackButton/BackButton';
@@ -9,6 +9,8 @@ export const MovieInfo = () => {
   const [movieInfo, setMovieInfo] = useState({});
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
+  const location = useLocation();
+  const goBack = location?.state?.from ?? '/';
 
   useEffect(() => {
     fetchMovieInformation(itemId);
@@ -29,7 +31,7 @@ export const MovieInfo = () => {
     <>
       {error && <h1>{error.message}</h1>}
       {status === 'resolved' && <MoviePage movieInfo={movieInfo} />}
-      <BackButton />
+      <BackButton location={goBack} />
       <Outlet />
     </>
   );
